@@ -55,9 +55,17 @@ class ViewController: UIViewController {
         let currentTime = formatter.string(from: date as Date)
         if (alaramTime == currentTime) {
             let onAlert = UIAlertController(title: "알림", message: "설정한 시간입니다", preferredStyle: UIAlertController.Style.alert)
-            let onAction = UIAlertAction(title: "네, 알겠습니다", style: UIAlertAction.Style.default, handler: nil) // alert 작동은 하는데, 네 누르면 1분 동안 알림 창 안 타나게 설정 해야함.
+            let onAction = UIAlertAction(title: "네, 알겠습니다", style: UIAlertAction.Style.default, handler: {
+                ACTION in self.alaramTime = ""
+            }) // alert 작동은 하는데, 네 누르면 1분 동안 알림 창 안 타나게 설정 해야함.
             onAlert.addAction(onAction)
             present(onAlert, animated: true, completion: nil)
+            
+            // 타이머를 하든 안 하든 2번 눌러야 alert창 꺼짐.
+            Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { timer in
+                onAlert.dismiss(animated: true, completion: nil)
+                timer.invalidate()
+            }
         }
         
         lblCurrentTime.text = "현재시간: " + formatter.string(from: date as Date)
