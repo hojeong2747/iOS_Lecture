@@ -8,12 +8,18 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var audioPlayer: AVAudioPlayer!
     var audioFile: URL!
     let MAX_VOLUME: Float = 10.0
     var progressTimer: Timer!
+    
+    let PICKER_VIEW_COLUMN = 1
+    let PICKER_VIEW_HEIGHT:CGFloat = 30
+    var musicFileName = ["Sicilian_Breeze", "Gully Dreams - Hanu Dixit", "Malkauns - Aditya Verma"]
+    var selectedMusic: String = "Sicilian_Breeze"
+    @IBOutlet var pickerMusic: UIPickerView!
     
     let timePlayerSelector:Selector = #selector(ViewController.updatePlayTime)
     
@@ -40,8 +46,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        audioFile = Bundle.main.url(forResource: "Sicilian_Breeze", withExtension: "mp3")
-        selectAudioFile()
+        audioFile = Bundle.main.url(forResource: selectedMusic, withExtension: "mp3")
+        selectAudioFile(selectedMusic)
         if !isRecordMode {
             initPlay()
             btnRecord.isEnabled = false
@@ -123,9 +129,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     }
     
     // 녹음
-    func selectAudioFile() {
+//    func selectAudioFile() {
+//        if !isRecordMode {
+//            audioFile = Bundle.main.url(forResource: "Sicilian_Breeze", withExtension: "mp3")
+//        } else {
+//            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//            audioFile = documentDirectory.appendingPathComponent("recordFile.m4a")
+//        }
+//    }
+    func selectAudioFile(_ audio: String) {
         if !isRecordMode {
-            audioFile = Bundle.main.url(forResource: "Sicilian_Breeze", withExtension: "mp3")
+            audioFile = Bundle.main.url(forResource: audio, withExtension: "mp3")
         } else {
             let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             audioFile = documentDirectory.appendingPathComponent("recordFile.m4a")
@@ -180,7 +194,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             lblRecordTime.text = convertNSTimeInterval2String(0)
         }
         
-        selectAudioFile()
+        selectAudioFile(selectedMusic)
         
         if !isRecordMode {
             initPlay()
@@ -208,5 +222,32 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         lblRecordTime.text = convertNSTimeInterval2String(audioRecorder.currentTime)
     }
     
+    // pickerView
+    // 스크롤 되는 게 두 개가 될 수 있다. 몇 칸 표시할 건지 (한 칸으로만 표시)
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return PICKER_VIEW_COLUMN
+    }
+    
+    // 배열 개수 반환. 스크롤 옵션 몇 개로 할 건지 (배열 개수만큼 스크롤 옵션)
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return musicFileName.count
+    }
+    
+    // 별도 추가, 배열 요소 값 표시 - row는 몇 번째인지 들어옴. 피커뷰 인덱스 = 배열 인덱스
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return musicFileName[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return PICKER_VIEW_HEIGHT
+    }
+    
+    // 별도 추가, 스크롤 이벤트 발생했을 때 호출되는 함수, 딱 멈추면 그 위치에 그림 파일 이름을 가져다가 레이블에 표시
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedMusic = musicFileName[row]
+        print(selectedMusic)
+        selectAudioFile(selectedMusic)
+        initPlay()
+    }
+    
 }
-

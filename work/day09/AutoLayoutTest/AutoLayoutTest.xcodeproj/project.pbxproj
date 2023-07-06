@@ -15,6 +15,8 @@
 		B78703912A53C61B00AF50B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B787038F2A53C61B00AF50B0 /* LaunchScreen.storyboard */; };
 		B78703992A53C63800AF50B0 /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = B78703982A53C63700AF50B0 /* 01.png */; };
 		B787039B2A53DAA800AF50B0 /* Sicilian_Breeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B787039A2A53DAA800AF50B0 /* Sicilian_Breeze.mp3 */; };
+		B7A742E12A568CEC0017C5BB /* Gully Dreams - Hanu Dixit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B7A742DF2A568CEB0017C5BB /* Gully Dreams - Hanu Dixit.mp3 */; };
+		B7A742E22A568CEC0017C5BB /* Malkauns - Aditya Verma.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B7A742E02A568CEC0017C5BB /* Malkauns - Aditya Verma.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		B78703922A53C61B00AF50B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B78703982A53C63700AF50B0 /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
 		B787039A2A53DAA800AF50B0 /* Sicilian_Breeze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sicilian_Breeze.mp3; sourceTree = "<group>"; };
+		B7A742DF2A568CEB0017C5BB /* Gully Dreams - Hanu Dixit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Gully Dreams - Hanu Dixit.mp3"; sourceTree = "<group>"; };
+		B7A742E02A568CEC0017C5BB /* Malkauns - Aditya Verma.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Malkauns - Aditya Verma.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		B78703832A53C61900AF50B0 /* AutoLayoutTest */ = {
 			isa = PBXGroup;
 			children = (
+				B7A742DF2A568CEB0017C5BB /* Gully Dreams - Hanu Dixit.mp3 */,
+				B7A742E02A568CEC0017C5BB /* Malkauns - Aditya Verma.mp3 */,
 				B787039A2A53DAA800AF50B0 /* Sicilian_Breeze.mp3 */,
 				B78703982A53C63700AF50B0 /* 01.png */,
 				B78703842A53C61900AF50B0 /* AppDelegate.swift */,
@@ -136,6 +142,8 @@
 				B78703992A53C63800AF50B0 /* 01.png in Resources */,
 				B787038C2A53C61900AF50B0 /* Main.storyboard in Resources */,
 				B787039B2A53DAA800AF50B0 /* Sicilian_Breeze.mp3 in Resources */,
+				B7A742E22A568CEC0017C5BB /* Malkauns - Aditya Verma.mp3 in Resources */,
+				B7A742E12A568CEC0017C5BB /* Gully Dreams - Hanu Dixit.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +303,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BK3TXJ8QXF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AutoLayoutTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -302,6 +311,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,6 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BK3TXJ8QXF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AutoLayoutTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -329,6 +340,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
